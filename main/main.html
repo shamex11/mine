@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mine</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+    body{
+  margin: 0;
+  padding: 0;
+
+}
+.game{
+  display: flex;
+  width: 1780px;
+}
+.data-game{
+display: flex;
+flex-direction:column ;
+width: 618px;
+margin-left: 200px;
+margin-top: 30px;
+margin-right: 100px;
+height: 250px;
+border-radius: 30px;
+background: rgb(202,202,202);
+background: linear-gradient(70deg, rgba(202,202,202,1) 0%, rgba(234,234,234,1) 100%);
+}
+.bet-qtb{
+  display: flex;
+  gap: 20px;
+  margin: 37px 30px 26px;
+}
+.bet{
+  padding-left: 20px;
+  color: white;
+  box-sizing: border-box;
+  font-family: inter;
+border: none;
+border-radius: 10px;
+width: 320px;
+height: 80px;
+font-size: 3rem;
+background: rgb(13,182,255);
+background: linear-gradient(100deg, rgba(13,182,255,1) 0%, rgba(87,74,228,1) 100%);
+}
+.qtb{
+  padding-left: 20px;
+  box-sizing: border-box;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 220px;
+  height: 80px;
+  font-size:3rem;
+  font-family: inter;
+  background: rgb(13,182,255);
+  background: linear-gradient(180deg, rgba(13,182,255,1) 0%, rgba(212,122,255,1) 100%);
+}
+.qty-bomb{
+width: 338px;
+height: 66px;
+display: flex;
+gap: 9px;
+margin-left: 30px;
+
+margin-right: 11px;
+margin-bottom: 40px;
+}
+.qb{
+  color: white;
+  width: 65px;
+  height: 65px;
+  background-color: rgba(13, 182, 255, 1);
+  border-radius: 10px;
+  font-size: 2.3rem;
+  text-align: center;
+  background: rgb(13,182,255);
+  font-family: inter;
+  background: linear-gradient(100deg, rgba(13,182,255,1) 0%, rgba(87,74,228,1) 100%);
+  cursor:pointer;
+}
+.btn{
+width: 320px;
+height: 65px;
+margin-bottom:58px ;
+margin-right:28px;
+background: rgb(54,194,255);
+background: linear-gradient(70deg, rgba(54,194,255,1) 0%, rgba(13,81,255,1) 100%);
+border-radius: 15px;
+border: none;
+font-size: 2.7rem;
+text-align: center;
+font-family: inter;
+color: white;
+cursor:pointer;
+}
+.game-btn{
+  width: 320px;
+height: 65px;
+margin-bottom:58px ;
+margin-right: 28px;
+background: rgb(15, 233, 215);
+background: linear-gradient(70deg, rgb(28, 241, 213) 0%, rgb(46, 245, 252) 100%);
+border-radius: 15px;
+border: none;
+font-size: 2.7rem;
+text-align: center;
+font-family: inter;
+color: white;
+cursor:pointer;
+}
+.qb-btn{
+  display: flex;
+  height: 78px;
+}.dm{
+  display: flex;
+
+}
+
+.balance{
+  width: 1920px;
+}
+.mines {
+  width: 630px;
+  height: 630px;
+  background-color: #e2e0e0;
+  margin-top: 100px;
+  margin-right: 700px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-areas: 
+  "a b c d e"
+  "f g h i j"
+  "k l m n o"
+  "p q r s t"
+  "u v w x y";
+  grid-gap: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 26px;
+  padding-left: 27px;
+  box-shadow: 1px 1px 1px 1px rgba(161, 160, 160, 0.555);
+}
+.mine {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+   background: rgb(38,107,243);
+background: linear-gradient(0deg, rgba(38,107,243,1) 0%, rgba(92,180,243,1) 100%);
+}
+.no-hide{
+  background: rgb(55,17,137);
+  background: linear-gradient(0deg, rgba(55,17,137,1) 0%, rgba(13,7,50,1) 100%);
+}
+.hide{
+  background: rgb(162, 159, 159);
+  background: linear-gradient(0deg, rgb(212, 210, 210) 0%, rgba(162, 159, 159, 0.8716) 100%);
+}
+
+.hide:hover{
+  background: linear-gradient(0deg, rgb(212, 210, 210, 0.7) 0%, rgba(162, 159, 159, 0.6716) 100%);
+}
+
+.xx{
+  height: 80px;
+  color: #35EF31;
+  font-size: 3.5rem;
+  margin: 0;
+  font-family: inter;
+
+}
+.res{
+  margin-left:240px;
+  margin-top: 200px;
+  width: 520px;
+  height: 80px;
+  border-radius: 20px;
+
+}
+.win{ font-size: 3rem;
+  font-family: inter;
+  color: white;
+  padding-left:15px   ;
+   background: rgb(80,250,87);
+background: linear-gradient(90deg, rgba(80,250,87,1) 0%, rgba(166,241,169,1) 100%);
+}
+.lose{
+  font-size: 3rem;
+  font-family: inter;
+  color: white;
+  padding-left:15px;
+  background: rgb(241,133,162);
+background: linear-gradient(90deg, rgba(241,133,162,1) 0%, rgba(255,0,86,1) 100%);
+}
+.plsbet{
+  font-size: 3rem;
+  font-family: inter;
+  color: white;
+  padding-left:15px;
+  background: rgb(80,226,250);
+background: linear-gradient(90deg, rgba(80,226,250,1) 0%, rgba(98,64,251,1) 100%);
+}
+.load{
+  font-size: 3rem;
+  font-family: inter;
+  color: white;
+  padding-left:15px;
+  background: rgb(241,133,133);
+  background: linear-gradient(90deg, rgba(241,133,133,1) 0%, rgba(126,48,235,1) 100%);
+}
+.rd{
+  display: flex;
+  flex-direction: column;
+}
+.header{
+  width: 96%;
+  height: 80px;
+  border-bottom: 1px solid;
+  margin-left: auto;
+}
+.left-bar{
+  border-right: 1px solid;
+  width: 4%;
+  height: 1080px;
+}
+.main{
+  display: flex;
+}
+.xm{
+  display: flex;
+
+}
+.mf{
+  width: 200px;
+  height: 80px;
+  background-color: #d6d6d6;
+  margin-left: auto;
+  border-top-left-radius:15px;
+  border-bottom-left-radius:15px;
+}
+.mine-info{
+  display: flex;
+  flex-direction: column;
+  margin-top:180px;
+  gap: 30px;
+}
+.qty-empty{
+  font-size: 3.5rem;
+  font-family: inter;
+  color:#eca610
+}
+</style>  
+</head>
+  <body>
+            
+
+      <header class="header">
+
+      </header>
+      <div class="main">
+        <div class="left-bar">
+        
+        </div>
+        <div class="game">
+          <div class="dm">
+            <div class="rd">
+                                
+              <div class="res plsbet">Поставьте ставку</div>
+              <div class="data-game">
+        
+                    <div class="bet-qtb">
+                      <input checked="text" name="bett" id="bettt" type="number" class="bet"/>
+                      <input type="number" class="qtb" />
+                    </div>
+                  <div class="qb-btn">
+                    <div class="qty-bomb">
+                      <div class="b2 qb" data-id="2">2</div>
+                      <div class="b8 qb" data-id="8">8</div>
+                      <div class="b13 qb" data-id="13">13</div>
+                      <div class="b24 qb" data-id="23">23</div>
+                     </div>
+                     <button class="btn c">Играть</button>
+                  </div>
+        
+        
+        
+              </div>
+            </div> </div>
+              <div class="xm">
+                <div class="mine-info">
+                  <p class="xx mf">Множ.</p>
+                  <div class="qty-empty mf">Ч.Клет</div>
+                </div>
+                            <div class="mines">
+                      <div class="mine" data-id="1"></div>
+                      <div class="mine" data-id="2"></div>
+                      <div class="mine" data-id="3"></div>
+                      <div class="mine" data-id="4"></div>
+                      <div class="mine" data-id="5"></div>
+                      <div class="mine" data-id="6"></div>
+                      <div class="mine" data-id="7"></div>
+                      <div class="mine" data-id="8"></div>
+                      <div class="mine" data-id="9"></div>
+                      <div class="mine" data-id="10"></div>
+                      <div class="mine" data-id="11"></div>
+                      <div class="mine" data-id="12"></div>
+                      <div class="mine" data-id="13"></div>
+                      <div class="mine" data-id="14"></div>
+                      <div class="mine" data-id="15"></div>
+                      <div class="mine" data-id="16"></div>
+                      <div class="mine" data-id="17"></div>
+                      <div class="mine" data-id="18"></div>
+                      <div class="mine" data-id="19"></div>
+                      <div class="mine" data-id="20"></div>
+                      <div class="mine" data-id="21"></div>
+                      <div class="mine" data-id="22"></div>
+                      <div class="mine" data-id="23"></div>
+                      <div class="mine" data-id="24"></div>
+                      <div class="mine" data-id="25"></div>
+                    </div>
+        
+              </div>
+          </div>
+        
+        </div>
+      </div>
+    <p class="balance">100</p>
+    <script>let arBombs = [];
+        const btn = document.querySelector(".btn");
+        const bet = document.querySelector(".bet");
+        const bln = document.querySelector(".balance");
+        const qtb = document.querySelector(".qtb");
+        const mines = document.querySelectorAll(".mine");
+        const res = document.querySelector(".res");
+        const mqty = [
+          [
+            2, 1.03, 1.12, 1.23, 1.35, 1.49, 1.66, 1.86, 2.09, 2.37, 2.71, 3.13,
+            3.65, 4.3, 5.18, 6.33, 7.91, 10.17, 13.57, 18.98, 28.49, 47.49, 95,
+            285,
+          ],
+          [
+            3, 1.07, 1.23, 1.41, 1.65, 1.91, 2.25, 2.67, 3.21, 3.9, 4.8, 6, 7.63,
+            9.33, 13.24, 18.2, 26.01, 39, 62.4, 39, 62.4, 109.34, 218.5, 546.24,
+            2180,
+          ],
+          [
+            4, 1.12, 1.4, 1.65, 2, 2.48, 3.1, 3.9, 5, 6.6, 8.8, 12, 16.8, 24.27,
+            36.4, 57.22, 95.37, 171.67, 343.35, 801.16, 2400, 12010,
+          ],
+          [
+            5, 1.2, 1.5, 1.91, 2.48, 3.25, 4.34, 5.89, 8.15, 11.55, 16.8, 25.21,
+            39.21, 63.72, 109.2, 200.29, 400.58, 901.31, 2400, 8410, 50470,
+          ],
+          [
+            6, 1.24, 1.66, 2.25, 3.1, 4.34, 6.2, 9.06, 13.59, 21, 33.61, 56.02,
+            98.04, 182.08, 364.16, 801.16, 2000, 6000, 24030, 168240,
+          ],
+          [
+            7, 1.31, 1.86, 2.67, 3.93, 5.89, 9.06, 14.34, 23.48, 39.9, 70.95,
+            133.06, 266.12, 576.59, 1380, 3800, 12680, 57080, 456660,
+          ],
+          [
+            8, 1.39, 2.09, 3.21, 5.04, 8.15, 13.59, 23.48, 42.26, 79.83, 159.66,
+            342.16, 798.36, 2070, 6220, 22830, 114160, 1020000,
+          ],
+          [
+            9, 1.48, 2.37, 3.9, 6.6, 11.55, 21, 39.9, 79.83, 169.65, 387.77,
+            969.44, 2710, 8820, 35280, 194080, 1940000,
+          ],
+          [
+            10, 1.58, 2.71, 4.8, 8.8, 16.8, 33.61, 70.95, 159.66, 387.77, 1030,
+            3100, 10850, 47050, 282300, 3100000,
+          ],
+          [
+            11, 1.7, 3.13, 6, 12, 25.21, 25.21, 56.02, 133.06, 342.15, 969.44,
+            3100, 11630, 54280, 352870, 4230000,
+          ],
+          [
+            12, 1.82, 3.65, 7.63, 16.8, 39.21, 98.04, 266.12, 798.36, 2710, 10850,
+            54280, 380020,
+          ],
+          [
+            13, 1.97, 4.3, 9.93, 24.27, 63.72, 182.08, 576.59, 2070, 8820, 47050,
+            352870, 4940000,
+          ],
+          [
+            14, 2.15, 5.18, 13.24, 36.4, 109.24, 364.16, 1380, 6220, 35280,
+            282300, 4230000,
+          ],
+          [
+            15, 2.37, 6.33, 18.2, 57.22, 200.29, 801.16, 200.29, 801.16, 3800,
+            22830, 194080, 3100000,
+          ],
+          [16, 2.63, 7.91, 26.01, 95.37, 400.58, 2000, 12680, 114160, 1940000],
+          [17, 2.96, 10.17, 39, 171.67, 901.31, 6000, 57080, 1020000],
+          [18, 3.39, 13.57, 62.42, 343.35, 2400, 24030, 456660],
+          [19, 3.95, 18.98, 109.24, 801, 8410, 168240],
+          [20, 4.74, 28.5, 218.5, 2400, 50470],
+          [21, 5.93, 47.5, 546.24, 12010],
+          [22, 7.9, 95, 2180],
+          [23, 11.87, 284.99],
+          [24, 24],
+        ];
+        
+        
+  bet.value = 100;
+  qtb.value = 5;
+  let NowBombs = 0;
+  
+  const qb = document.querySelectorAll(".qb");
+  for (const qbs of qb) {
+    qbs.onclick = () => {
+      qtb.value = qbs.getAttribute("data-id");
+    };
+  }
+  
+  const generatebombs = (n) => {
+    const min = 1;
+    const max = 25;
+  
+    for (let i = 0; i < n; i++) {
+      arBombs[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+  };
+  
+  const hasDuplicates = (arr) => {
+    const elementMap = new Map();
+    let result = false;
+  
+    for (const item of arr) {
+      if (elementMap.has(item)) {
+        result = true;
+        break;
+      }
+      elementMap.set(item, true);
+    }
+  
+    return result;
+  };
+  
+  const updateUI = () => {
+    for (let mine of mines) {
+      mine.classList.remove("hide");
+      mine.classList.remove("no-hide");
+    }
+  };
+  
+  const mFn = () => {
+    const inputValue = document.querySelector(".qtb").value;
+    const n = Math.round(parseFloat(inputValue));
+  
+    if (qtb.value === "1" || qtb.value === "" || parseFloat(qtb.value) < 2) {
+      qtb.value = 2;
+    }
+    if (parseInt(bet.value) >= parseInt(bln.textContent) ) {
+      bet.value = parseInt(bln.textContent);
+    }
+    if (bet.value === "") {
+      bet.value = 10;
+    }if(parseFloat(bet.value) < 1){
+      bet.value = 1
+    }
+  
+    if (n === 24) {
+      qtb.value = 23;
+    }
+
+    return true;
+  };
+  
+  let inter = 0;
+  const game = () => {
+    res.classList.remove("lose");
+    res.classList.remove("win");
+    res.classList.remove("plsbet");
+    res.classList.add("load");
+    res.textContent = "Игра идёт";
+    let haveBet = mFn();
+    updateUI();
+    if (haveBet) {
+      const inputValue = document.querySelector(".qtb").value;
+      const n = Math.round(parseFloat(inputValue));
+      generatebombs(n);
+  
+      while (hasDuplicates(arBombs)) {
+        generatebombs(n);
+        inter++;
+      }
+      console.log("1. Положение бомб " + arBombs);
+      console.log(
+        "2. " + inter + ":Количество повторных генерация массива с бомбами"
+      );
+      const mines = document.querySelectorAll(".mine");
+  
+      for (let mine of mines) {
+        mine.classList.remove("bomb");
+      }
+  
+      for (let mine of mines) {
+  
+        mine.classList.add("hide");
+        const dataAttributeValue = mine.getAttribute("data-id");
+        if (arBombs.includes(parseInt(dataAttributeValue))) {
+          mine.classList.add("bomb");
+          const qtb = document.querySelector(".qtb");
+          const bet = document.querySelector(".bet");
+          qtb.disabled = true;
+          bet.disabled = true;
+          btn.classList.add("game-btn");
+          btn.classList.remove("btn");
+          const gameBtn = document.querySelector(".game-btn");
+          gameBtn.textContent = "Забрать";
+          gameBtn.onclick = () => {
+            if (mine1 >= 1) { 
+              
+              winGame();
+  
+            }
+          };
+        }
+      }
+    }
+  };
+  
+  let nowGameBomb = null;
+  const btnClicks = 0;
+  
+  const winGame = () => {
+    const inputValue = document.querySelector(".qtb").value;
+    const n = Math.round(parseFloat(inputValue));
+    if(fullScreen){
+    NowBombs = 25 - n
+    }
+  
+    const blnElement = document.querySelector(".balance");
+  
+    const betValue = parseInt(document.querySelector(".bet").value);
+    const blnV = parseInt(blnElement.textContent);
+  
+    const resB = betValue * nowGameBomb[NowBombs];
+     const res = document.querySelector(".res");
+    
+    xnow = nowGameBomb[NowBombs];
+    const newBalance = (xnow * betValue) + blnV ;
+    res.textContent = "Выигрыш " + betValue * xnow
+  blnElement.textContent = newBalance;
+  
+    res.classList.remove("lose");
+    res.classList.add("win");
+    res.classList.remove("plsbet");
+    res.classList.remove("load");
+    res.textContent = "Выигрыш " + resB;
+  
+    btn.textContent = "Играть";
+    endGame();
+  };
+  
+  btn.onclick = () => {
+    game();
+    const inputValue = document.querySelector(".qtb").value;
+    const n = Math.round(parseFloat(inputValue));
+    for (let i = 0; i < mqty.length; i++) {
+      if (mqty[i][0] === n) {
+        nowGameBomb = mqty[i];
+        console.log("3. Умножения " + nowGameBomb);
+        break;
+      }
+    }
+    const qtyEmpty = document.querySelector('.qty-empty');
+    const betValue = parseInt(document.querySelector(".bet").value);
+    const blnEl = document.querySelector(".balance");
+    const blnElement = parseInt(blnEl.textContent);
+    blnEl.textContent = blnElement - betValue;
+    qtyEmpty.textContent = 25 - n;
+    const x = document.querySelector('.xx')
+    x.textContent = 0 + "X";
+  };
+  
+  let tryy = true;
+  
+  const endGame = () => {
+    qtb.disabled = false;
+    bet.disabled = false;
+    NowBombs = 0;
+    mine1 = 0;
+    const bombs = document.querySelectorAll(".bomb");
+    for (let bomb of bombs) {
+      bomb.classList.remove("hide");
+      bomb.classList.add("no-hide");
+      bomb.classList.remove("bomb");
+    }
+  
+    tryy = false;
+    const gameBtn = document.querySelector(".game-btn");
+    const c = document.querySelector(".c");
+    c.classList.add("btn");
+    c.classList.remove("game-btn");
+    c.textContent = "Играть";
+  };
+  
+  let mine1 = 0;
+  let fullScreen = false
+    for (let mine of mines) {
+      mine.onclick = () => {
+        const qtb = document.querySelector(".qtb");
+        const bet = document.querySelector(".bet");
+        mine1 = 1;
+        if (tryy) {
+          if (mine.classList.contains("bomb")) {
+            endGame();
+            res.classList.add("lose");
+            res.classList.remove("win");
+            res.classList.remove("plsbet");
+            res.classList.remove("load");
+            res.textContent = "Проигрыш";
+            const x = document.querySelector('.xx')
+            x.textContent = 0 + "X";
+          } else {
+              if (mine.classList.contains("hide")) {
+              NowBombs++;
+              const qtyEmpty = document.querySelector('.qty-empty');
+              const newEmpty = parseInt(qtyEmpty.textContent) - 1;
+              qtyEmpty.textContent = newEmpty;
+              const inputValue = document.querySelector(".qtb").value;
+              const n = Math.round(parseFloat(inputValue));
+              xnow = nowGameBomb[NowBombs];
+              const x = document.querySelector('.xx');
+              x.textContent = xnow + "X";
+              mine.classList.remove('hide');
+              if (newEmpty === 0) {
+                fullScreen = true
+                endGame();
+                winGame();
+              }
+            }
+          }
+        } else {
+          for (let mine of mines) {
+            if (mine.classList.contains("bomb")) {
+              mine.classList.remove("bomb");
+            }
+          }
+        }
+      };
+    };</script>
+  </body>
+</html>
